@@ -8,7 +8,7 @@ export default function Home() {
         <h3>Find tutor</h3>
 
         <form action="">
-          <div className="flex flex-col gap-10 text-red-7000 ">
+          <div className="flex flex-col">
             <label htmlFor="provinces">Choose your province</label>
 
             <select name="provinces">
