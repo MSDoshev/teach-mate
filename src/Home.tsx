@@ -1,4 +1,5 @@
 import Dropdown from "./components/Dropdown.tsx";
+import InputField from "./components/InputField.tsx";
 import { disciplines, provinces } from "./utils/constants.ts";
 
 export default function Home() {
@@ -13,7 +14,7 @@ export default function Home() {
 
             <Dropdown arr={disciplines} defaultValue="Choose subject"/>
             <Dropdown arr={provinces} defaultValue="Choose province"/>
-            
+            <InputField placeholder="Search by tutor name"/>
           </div>
         </form>
       </div>
