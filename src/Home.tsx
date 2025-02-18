@@ -1,21 +1,19 @@
-import { provinces } from "./utils/constants.ts";
+import Dropdown from "./components/Dropdown.tsx";
+import { disciplines, provinces } from "./utils/constants.ts";
 
 export default function Home() {
   return (
     <>
       <div>
-        <h1>Find your tutor and book a private lesson</h1>
-        <h3>Find tutor</h3>
+        <h1 className="font-bold text-[40px] text-center">Find your tutor and book a private lesson</h1>
+        <h3 className="font-semibold text-[25px]">Find tutor</h3>
 
         <form action="">
-          <div className="flex flex-col">
-            <label htmlFor="provinces">Choose your province</label>
+          <div className="flex flex-col gap-[8px]">            
 
-            <select name="provinces">
-              {provinces.map((item, index) => (
-                <option key={index}>{item}</option>
-              ))}
-            </select>
+            <Dropdown arr={disciplines} defaultValue="Choose subject"/>
+            <Dropdown arr={provinces} defaultValue="Choose province"/>
+            
           </div>
         </form>
       </div>
