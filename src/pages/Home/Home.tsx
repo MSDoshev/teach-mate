@@ -1,8 +1,8 @@
-import Dropdown from "./components/Dropdown.tsx";
-import InputField from "./components/InputField.tsx";
-import PrimaryButton from "./components/PrimaryButton.tsx";
-import { disciplines, provinces } from "./utils/constants.ts";
-import homeImage from "./assets/home-image.png";
+import Dropdown from "../../components/Dropdown.tsx";
+import InputField from "../../components/InputField.tsx";
+import PrimaryButton from "../../components/PrimaryButton.tsx";
+import { disciplines, provinces } from "../../utils/constants.ts";
+import homeImage from "../../assets/home-image.png";
 
 export default function Home() {
   return (
