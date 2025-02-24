@@ -3,10 +3,12 @@ import InputField from "../../components/InputField.tsx";
 import PrimaryButton from "../../components/PrimaryButton.tsx";
 import { disciplines, provinces } from "../../utils/constants.ts";
 import homeImage from "../../assets/home-image.png";
+import Card from "../../components/Card.tsx";
+import mathIcon from "../../assets/math-book.png";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <div className="max-w-[1440px] pt-32 w-full flex flex-row items-center justify-between gap-10">
         <div className="flex flex-col gap-6">
           <h1 className="font-bold text-[38px] w-[450px] leading-[45px]">
@@ -31,6 +33,19 @@ export default function Home() {
           alt="Home"
           className="max-w-[500px] h-auto object-cover"
         />
+      </div>
+
+      <div className="flex-wrap max-w-[900px] w-full flex items-center py-5 gap-5">
+        <Card image={mathIcon}/>
+        <Card image={mathIcon}/>
+        <Card image={mathIcon}/>
+        <Card image={mathIcon}/>
+        <Card image={mathIcon}/>
+        <Card image={mathIcon}/>
+        <Card image={mathIcon}/>
+        <Card image={mathIcon}/>
+        <Card image={mathIcon}/>
+        <Card image={mathIcon}/>
       </div>
     </div>
   );
