@@ -16,16 +16,25 @@ export default function Home() {
             <span className="text-[#e9c46a]">private lesson</span>!
           </h1>
           <div className="flex flex-col gap-3">
-          <h3 className="font-semibold text-[18px]">Find tutor</h3>
+            <h3 className="font-semibold text-[18px]">Find tutor</h3>
 
-          <form action="">
-            <div className="flex flex-col gap-4">
-              <Dropdown classes =""arr={disciplines} defaultValue="Choose subject" />
-              <Dropdown classes="" arr={provinces} defaultValue="Choose province" />
-              <InputField classes="" placeholder="Search by tutor name" />
-              <PrimaryButton classes="ml-auto" text="Search" />
-            </div>
-          </form></div>
+            <form action="">
+              <div className="flex flex-col gap-4">
+                <Dropdown
+                  classes=""
+                  arr={disciplines}
+                  defaultValue="Choose subject"
+                />
+                <Dropdown
+                  classes=""
+                  arr={provinces}
+                  defaultValue="Choose province"
+                />
+                <InputField classes="" placeholder="Search by tutor name" />
+                <PrimaryButton classes="ml-auto" text="Search" />
+              </div>
+            </form>
+          </div>
         </div>
 
         <img
@@ -35,17 +44,20 @@ export default function Home() {
         />
       </div>
 
-      <div className="flex-wrap max-w-[900px] w-full flex items-center py-5 gap-5">
-        <Card image={mathIcon}/>
-        <Card image={mathIcon}/>
-        <Card image={mathIcon}/>
-        <Card image={mathIcon}/>
-        <Card image={mathIcon}/>
-        <Card image={mathIcon}/>
-        <Card image={mathIcon}/>
-        <Card image={mathIcon}/>
-        <Card image={mathIcon}/>
-        <Card image={mathIcon}/>
+      <div className="max-w-[900px] flex items-center ">
+        <h2></h2>
+        <div className="flex-wrap w-full flex items-center py-5 gap-5"> 
+          <Card image={mathIcon} />
+          <Card image={mathIcon} />
+          <Card image={mathIcon} />
+          <Card image={mathIcon} />
+          <Card image={mathIcon} />
+          <Card image={mathIcon} />
+          <Card image={mathIcon} />
+          <Card image={mathIcon} />
+          <Card image={mathIcon} />
+          <Card image={mathIcon} />
+        </div>
       </div>
     </div>
   );
