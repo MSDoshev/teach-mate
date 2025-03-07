@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const options = { discriminatorKey: "role", timestamps: "true" };
+const options = { discriminatorKey: "role", timestamps: true };
 
 const UserSchema = new mongoose.Schema(
   {
