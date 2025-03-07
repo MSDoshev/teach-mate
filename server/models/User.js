@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema(
     age: { type: Number, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    role:{type:String, required:true}
   },
   options
 );
@@ -36,10 +37,12 @@ const ParentSchema = new mongoose.Schema({
   phoneNumber: { type: String, required: true },
 });
 
+const Parent = User.discriminator("Parent", ParentSchema);
+
 const AdminSchema = new mongoose.Schema({
   roleLevel: { type: Number, default: 1 },
 });
 const Admin = User.discriminator("Admin", AdminSchema);
 
 
-module.exports = { User, Teacher, Student, Admin };
+module.exports = { User, Teacher, Student, Parent, Admin };
