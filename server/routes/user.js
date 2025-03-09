@@ -3,6 +3,7 @@ const { User, Teacher, Student, Parent, Admin } = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
+const authMiddleware = require("../middleware/auth");
 
 dotenv.config();
 
@@ -114,6 +115,54 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {});
+//get a user by id
+router.get("/:id", async (req, res) => {
+  try{
+    const user = await User.findById(req.params.id);
+    if(!user){
+      return res.status(404).json({msg:"User not found"});
+    }
+    res.json(user);
+  }
+  catch(error){
+    res.status(500).json({error:error.message});
+  }
+});
+
+//update user
+router.put("/:id",  async(req,res)=>{
+  try{
+    const{firstName, lastName, username, age, email, password} = req.body;
+
+    let updatedFields = {firstName, lastName, username, age, email};
+
+    
+    if(password){
+      updatedFields.password = await bcrypt.hash(password, 16);
+    }
+    let updatedUser =  await User.findByIdAndUpdate(req.params.id, updatedFields, {new:true});
+
+    if(!updatedUser){
+      return res.status(400).json({msg:"User not found"});
+    }
+    res.json(updatedUser);
+  }catch(error){
+    res.status(500).json({error:error.message});
+  }
+});
+
+//delete a user
+router.delete("/:id", async(req,res)=>{
+  try{
+    const deletedUser = await User.findByIdAndDelete(req.params.id);
+    if(!deletedUser){
+      return res.status(404).json({msg:"User not found"});    
+    }
+    res.json({msg:"User deleted successfully"});
+  }
+  catch(error){
+    res.status(500).json({error:error.message});
+  }
+});
 
 module.exports = router;
