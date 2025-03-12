@@ -4,12 +4,14 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const authMiddleware = require("../middleware/auth");
+const validator=require("validator");
 
 dotenv.config();
 
 const router = express.Router();
 
 router.post("/register", async (req, res) => {
+  
   try {
     const {
       role,
@@ -21,6 +23,19 @@ router.post("/register", async (req, res) => {
       password,
       ...extraFields
     } = req.body;
+    //validation
+    if(!email || !password){
+      throw Error('All fields are required');
+    }
+
+    if(!validator.isEmail(email)){
+      throw Error('Email is not valid!');
+    }
+
+    if(!validator.isStrongPassword(password)){
+      throw Error('Password not strong enough!');
+    }
+
 
     let newUser;
     const hashedPassword = await bcrypt.hash(password, 16);
