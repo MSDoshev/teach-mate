@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 
 import "./index.css";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
       <Footer />
