@@ -1,6 +1,7 @@
 import { APIProvider } from "@vis.gl/react-google-maps";
 import teacherPlaceholder from "../../assets/teacher_placeholder.png";
 import CustomMap from "../../components/CustomMap";
+import BookingTable from "../../components/BookingTable";
 export default function TeacherProfile() {
   return (
     <>
@@ -37,7 +38,7 @@ export default function TeacherProfile() {
         </div>
       </div>
       <div className="flex flex-col">
-
+<BookingTable/>
       </div>
     </>
   );
