@@ -6,6 +6,8 @@ import homeImage from "../../assets/home-image.png";
 import Card from "../../components/Card.tsx";
 import mathIcon from "../../assets/math-book.png";
 
+
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center">

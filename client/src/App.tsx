@@ -4,7 +4,8 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 
 import "./index.css";
-import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";0
+import Profile from "./pages/Profile/Profile"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/profile" element = {<Profile/>}/>
         </Routes>
       </main>
       <Footer />
