@@ -78,9 +78,9 @@ export default function BookingTable() {
                   {visibleDates.map((visibleDate) => (
                     <td className="text-[20px] text-center font-semibold border border-gray-300 px-8 py-5" key={visibleDate}>
                       {bookings[visibleDate]?.includes(time) ? (
-                        <span>Booked</span> // Placeholder text for booked slots
+                        <span>Запазено</span> // Placeholder text for booked slots
                       ) : (
-                        <button onClick={() => bookLesson(visibleDate, time)}>Book {time}</button>
+                        <button onClick={() => bookLesson(visibleDate, time)}>Запази {time}</button>
                       )}
                     </td>
                   ))}
