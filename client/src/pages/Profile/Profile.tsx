@@ -6,16 +6,16 @@ import DailyBookingSchedule from "../../components/DailyBookingSchedule";
 export default function TeacherProfile() {
   return (
     /*main container*/
-    <div className="px-[100px] py-[100px] grid grid-cols-2 gap-[100px] max-w-[1240px]">
+    <div className="px-[100px] py-[100px] grid grid-cols-2 gap-[100px]">
       {/*this is for the first column of the main container */}
       {/*first row - image and basic info, below them is the extended biography*/}
       <div className="grid grid-rows-2 max-h-[800px]">
         {/*this div includes the image and the basic info in two columns*/}
-        <div className="grid grid-cols-2">
+        <div className="flex flex-row gap-[40px] min-w-[800px]">
           {/*image div */}
-          <div className="w-[200px] rounded-[100px]">
+          <div className="w-[250px] rounded-[100px]">
             <img
-              className=" min-w-[200px] w-full h-[300px] object-cover"
+              className=" min-w-[250px] w-full h-[300px] object-cover"
               src={teacherPlaceholder}
               alt="teacher image"
             />
@@ -45,9 +45,10 @@ export default function TeacherProfile() {
       </div>
       {/*second column of the main container */}
       {/*two rows - one for the booking table and one for the map */}
-      <div className="grid grid-rows-2 max-h-[800px]">
+      <div className="grid grid-rows-2 gap-[30px]">
         {/*div for the booking scjedule*/}
         <div>
+
           <DailyBookingSchedule />
         </div>
         {/*div for the map element*/}
