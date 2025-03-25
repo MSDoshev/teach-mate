@@ -6,10 +6,10 @@ import DailyBookingSchedule from "../../components/DailyBookingSchedule";
 export default function TeacherProfile() {
   return (
     /*main container*/
-    <div className="px-[100px] py-[100px] grid grid-cols-2 gap-[100px]">
+    <div className="px-[100px] py-[100px] grid grid-cols-2 gap-[100px] max-w-[1240px]">
       {/*this is for the first column of the main container */}
       {/*first row - image and basic info, below them is the extended biography*/}
-      <div className="grid grid-rows-2 gap-1">
+      <div className="grid grid-rows-2 max-h-[800px]">
         {/*this div includes the image and the basic info in two columns*/}
         <div className="grid grid-cols-2">
           {/*image div */}
@@ -45,7 +45,7 @@ export default function TeacherProfile() {
       </div>
       {/*second column of the main container */}
       {/*two rows - one for the booking table and one for the map */}
-      <div className="grid grid-rows-2">
+      <div className="grid grid-rows-2 max-h-[800px]">
         {/*div for the booking scjedule*/}
         <div>
           <DailyBookingSchedule />
