@@ -1,18 +1,6 @@
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-} from "recharts";
-import CountUp from "react-countup";
-import LessonsChart from "./lessonsChart";
+import BookingsChart from "./BookingsChart";
+import IncomeChart from "./IncomeChart";
+import LessonsChart from "./LessonsChart";
 import UsersChart from "./UsersChart";
 
 export default function AdminDashboard() {
@@ -27,14 +15,65 @@ export default function AdminDashboard() {
   ];
 
   const lessonData = [
-    { name: "Bulgarian Language", value: 400 },
-    { name: "Mathematics", value: 300 },
-    { name: "Physics", value: 300 },
-    { name: "Chemistry", value: 200 },
-    { name: "English Language", value: 200 },
+    { name: "Български", value: 400 },
+    { name: "Математика", value: 300 },
+    { name: "Физика", value: 300 },
+    { name: "Химия", value: 200 },
+    { name: "Английски", value: 200 },
   ];
 
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#689e53"];
+  const incomeData = [
+    {
+      name: "Януари",
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Февруари",
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
+    },
+    {
+      name: "Март",
+      uv: 2000,
+      pv: 9800,
+      amt: 2290,
+    },
+    {
+      name: "Април",
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
+    },
+    {
+      name: "Май",
+      uv: 1890,
+      pv: 4800,
+      amt: 2181,
+    },
+    {
+      name: "Юни",
+      uv: 2390,
+      pv: 3800,
+      amt: 2500,
+    },
+    {
+      name: "Юли",
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
+    },
+  ];
+
+  const bookingsData = [
+    { city: "New York", bookings: 450 },
+    { city: "Los Angeles", bookings: 350 },
+    { city: "Chicago", bookings: 275 },
+    { city: "Houston", bookings: 200 },
+    { city: "Miami", bookings: 125 },
+  ];
 
   return (
     <div className="flex w-full min-h-screen bg-gray-100">
@@ -47,12 +86,17 @@ export default function AdminDashboard() {
       <main className="flex-1 p-10">
         <h1 className="text-4xl font-bold mb-6">Dashboard</h1>
 
-        {/* Users Statistics */}
         <div className="flex flex-wrap gap-3 mb-10">
+          {/* Users Statistics */}
           <UsersChart usersData={usersData} />
 
           {/* Lessons Statistics */}
           <LessonsChart lessonData={lessonData} />
+
+          <IncomeChart incomeData={incomeData} />
+
+          {/* Bookings Statistics */}
+          <BookingsChart bookingsData={bookingsData} />
         </div>
       </main>
     </div>

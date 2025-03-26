@@ -8,7 +8,7 @@ import CountUp from "react-countup";
 export default function LessonsChart({ lessonData }: ChartProps) {
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#689e53"];
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 w-full sm:w-[500px]">
+    <div className="bg-white shadow-md rounded-lg p-4 w-full sm:w-[500px]">
       <h2 className="text-xl font-semibold mb-4">Активни/Завършени Уроци</h2>
       <div className="flex gap-6 px-10 justify-between">
         <div className="bg-green-100 p-4 rounded-lg text-center w-40 shadow">
@@ -25,7 +25,7 @@ export default function LessonsChart({ lessonData }: ChartProps) {
         </div>
       </div>
       <div className="mt-6 flex justify-center gap-10">
-        <PieChart width={280} height={280}>
+        <PieChart width={400} height={300}>
           <Pie
             data={lessonData}
             cx="50%"
@@ -34,7 +34,7 @@ export default function LessonsChart({ lessonData }: ChartProps) {
             outerRadius={80}
             paddingAngle={5}
             dataKey="value"
-            label
+            label=  {({ name }) => name}
             labelLine
           >
             {lessonData.map((entry, index) => (
