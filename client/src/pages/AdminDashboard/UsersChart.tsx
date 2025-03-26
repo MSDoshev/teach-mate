@@ -40,8 +40,8 @@ export default function UsersChart({ usersData }: UsersProps) {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="Students" stroke="#E9C46A" />
-            <Line type="monotone" dataKey="Teachers" stroke="#2A9D8F" />
+            <Line type="monotone" dataKey="Students" stroke="#E9C46A" name="Курсисти"/>
+            <Line type="monotone" dataKey="Teachers" stroke="#2A9D8F" name="Учители"/>
           </LineChart>
         </ResponsiveContainer>
       </div>
