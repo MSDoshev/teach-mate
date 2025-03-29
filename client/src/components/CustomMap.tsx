@@ -23,7 +23,7 @@ export default function CustomMap() {
                     </option>
                 ))}
             </select>
-            <Map className="rounded-[50px] w-[500px] h-[200px]"
+            <Map className="border-[1px] w-[800px] h-[500px]"
                 defaultZoom={13}
                 center={markerLocation}
                 gestureHandling={"greedy"}

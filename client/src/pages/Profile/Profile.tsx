@@ -52,7 +52,7 @@ export default function TeacherProfile() {
           <DailyBookingSchedule />
         </div>
         {/*div for the map element*/}
-        <div className="w-full h-[500px]">
+        <div className="">
           <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
             <CustomMap />
           </APIProvider>
