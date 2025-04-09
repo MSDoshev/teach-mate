@@ -1,6 +1,7 @@
 import BookingsChart from "./BookingsChart";
 import IncomeChart from "./IncomeChart";
 import LessonsChart from "./LessonsChart";
+import PendingApprovals from "./PendingApprovals";
 import UsersChart from "./UsersChart";
 
 export default function AdminDashboard() {
@@ -68,35 +69,47 @@ export default function AdminDashboard() {
   ];
 
   const bookingsData = [
-    { city: "New York", bookings: 450 },
-    { city: "Los Angeles", bookings: 350 },
-    { city: "Chicago", bookings: 275 },
-    { city: "Houston", bookings: 200 },
-    { city: "Miami", bookings: 125 },
+    { city: "Пловдив", bookings: 850 },
+    { city: "София", bookings: 350 },
+    { city: "Хасково", bookings: 275 },
+    { city: "Варна", bookings: 200 },
+    { city: "Бургас", bookings: 125 },
   ];
 
   return (
     <div className="flex w-full min-h-screen bg-gray-100">
       {/* Sidebar */}
-      <aside className="w-72 bg-slate-700 text-white p-6">
+      <aside className="w-72 bg-slate-700 text-white p-6 min-w-[300px]">
         <h2 className="text-xl font-semibold">Admin Panel</h2>
       </aside>
 
       {/* Main Content */}
       <main className="flex-1 p-10">
         <h1 className="text-4xl font-bold mb-6">Dashboard</h1>
+        <div className="flex flex-row gap-3">
+          <div className="flex flex-col flex-wrap gap-3">
+            <div className="flex flex-row gap-3">
+              {/* Users Chart */}
+              <UsersChart usersData={usersData} />
 
-        <div className="flex flex-wrap gap-3 mb-10">
-          {/* Users Statistics */}
-          <UsersChart usersData={usersData} />
+              {/* Lessons Chart */}
+              <LessonsChart lessonData={lessonData} />
+            </div>
+            <div className="flex flex-row gap-3">
+              {/* Income Chart */}
+              <IncomeChart incomeData={incomeData} />
 
-          {/* Lessons Statistics */}
-          <LessonsChart lessonData={lessonData} />
-
-          <IncomeChart incomeData={incomeData} />
-
-          {/* Bookings Statistics */}
-          <BookingsChart bookingsData={bookingsData} />
+              {/* Bookings Chart */}
+              <BookingsChart bookingsData={bookingsData} />
+            </div>
+          </div>
+          {/* Pending Approvals + Another Component in the right column */}
+          <div className="flex flex-col gap-3 min-w-[440px]">
+            <PendingApprovals />
+            <div className="h-full bg-white shadow rounded-lg">
+              <h2 className="p-4">New Component</h2>
+            </div>
+          </div>
         </div>
       </main>
     </div>

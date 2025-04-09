@@ -20,7 +20,7 @@ export default function BookingsChart({ bookingsData }: BookingProps) {
       <h2 className="text-xl font-semibold mb-4">Регистрирани Потребители</h2>
 
       <div className="mt-6 h-64">
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={sortedData}
             layout="vertical"
@@ -33,7 +33,7 @@ export default function BookingsChart({ bookingsData }: BookingProps) {
             <Bar
               dataKey="bookings"
               fill="#3B82F6"
-              barSize={30}
+              barSize={20}
               label={{ position: "right", fill: "black" }}
             />
           </BarChart>
