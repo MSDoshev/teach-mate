@@ -10,6 +10,7 @@ export default function Register() {
   const[grade, setGrade] = useState<string>("");
   const[school, setSchool] = useState<string>("");
   const[password, setPassword] = useState<string>("");
+  const[role, setRole] = useState<string>("");
 
   interface RegisterFormData { //because we are using tsx we should define the types of the data we will send to the server
     email: string;
@@ -20,9 +21,10 @@ export default function Register() {
     grade: string;
     school: string;
     password: string;
+    role: string;
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>):Promise< void> => {
     e.preventDefault(); //prevents page refrenshing
     const formData: RegisterFormData = {
       email,
@@ -33,8 +35,32 @@ export default function Register() {
       grade,
       school,
       password,
+      role,
     };
+
+    
     console.log(formData);
+
+    try{
+      const response = await fetch("http://localhost:5000/users/register",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if(!response.ok){
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Registration failed");
+      }
+
+      const data = await response.json();
+      console.log("Registration successful", data);
+    }
+    catch(error){
+      console.error("Error during registration", error);
+    }
   };
   return (
     <div>
@@ -82,6 +108,16 @@ export default function Register() {
         <div>
           <label htmlFor="school">School</label>
           <input type="text" name="school" id="school" required onChange={(e)=>setSchool(e.target.value)}/>
+        </div>
+        <div>
+          <label htmlFor="role">Role:</label>
+          <select name="role" id="role" required onChange={(e)=>setRole(e.target.value)}>
+            <option value="">Select Role</option>
+            <option value="Student">Student</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Parent">Parent</option>
+            <option value="Admin">Admin</option>
+          </select>
         </div>
         <div>
           <label htmlFor="password">Password</label>
