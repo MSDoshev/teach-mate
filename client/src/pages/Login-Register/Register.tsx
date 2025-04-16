@@ -1,7 +1,44 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 export default function Register() {
+  const[email, setEmail] = useState<string>(""); //because we are using typescript, we need to define the type of the state
+  const[username, setUsername] = useState<string>("");
+  const[firstName, setFirstName] = useState<string>("");
+  const[lastName, setLastName] = useState<string>("");
+  const[age, setAge] = useState<string>("");
+  const[grade, setGrade] = useState<string>("");
+  const[school, setSchool] = useState<string>("");
+  const[password, setPassword] = useState<string>("");
+
+  interface RegisterFormData { //because we are using tsx we should define the types of the data we will send to the server
+    email: string;
+    username: string;
+    firstName: string;
+    lastName: string;
+    age: string;
+    grade: string;
+    school: string;
+    password: string;
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault(); //prevents page refrenshing
+    const formData: RegisterFormData = {
+      email,
+      username,
+      firstName,
+      lastName,
+      age,
+      grade,
+      school,
+      password,
+    };
+    console.log(formData);
+  };
   return (
     <div>
-      <form action="" method="POST">
+      <form action="" method="POST" onSubmit={handleSubmit} autoComplete="off">
         <div>
           <label htmlFor="email">Email</label>
           <input
@@ -11,6 +48,7 @@ export default function Register() {
             placeholder="Email"
             autoComplete="off"
             required
+            onChange={(e)=>setEmail(e.target.value)}
           />
         </div>
         <div>
@@ -22,37 +60,44 @@ export default function Register() {
             placeholder="Username"
             autoComplete="off"
             required
+            onChange={(e)=>setUsername(e.target.value)}
           />
         </div>
         <div>
           <label htmlFor="firstName">First Name</label>
-          <input type="text" name="firstName" id="firstName" required />
+          <input type="text" name="firstName" id="firstName" required onChange={(e)=>setFirstName(e.target.value)} />
         </div>
         <div>
           <label htmlFor="lastName">Last Name</label>
-          <input type="text" name="lastName" id="lastName" required />
+          <input type="text" name="lastName" id="lastName" required onChange={(e)=>setLastName(e.target.value)} />
         </div>
         <div>
           <label htmlFor="age">Age</label>
-          <input type="text" name="age" id="age" required />
+          <input type="text" name="age" id="age" required onChange={(e)=>setAge(e.target.value)}/>
         </div>
         <div>
           <label htmlFor="grade">Grade</label>
-          <input type="grade" name="grade" id="grade" required />
+          <input type="text" name="grade" id="grade" required onChange={(e)=>setGrade(e.target.value)}/>
         </div>
         <div>
           <label htmlFor="school">School</label>
-          <input type="school" name="school" id="school" required />
+          <input type="text" name="school" id="school" required onChange={(e)=>setSchool(e.target.value)}/>
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" autoComplete="nope"/>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            autoComplete="nope"
+            onChange={(e)=>setPassword(e.target.value)}
+          />
         </div>
         {/*we need a repeat password block */}
         <button type="submit">Register</button>
-        <p>Already have an account?</p>
-        <button>Login</button>
       </form>
+      <p>Already have an account?</p>
+      <Link to="/login">Login</Link>
     </div>
   );
 }
